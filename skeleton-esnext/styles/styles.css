@@ -63,6 +63,12 @@ section.au-enter-active {
   animation: fadeInRight 1s;
 }
 
+/* animate page transitions */
+section.au-leave-active {
+  -webkit-animation: fadeOutRight 1s;
+  animation: fadeOutRight 1s;
+}
+
 div.au-stagger {
   /* 50ms will be applied between each successive enter operation */
   -webkit-animation-delay: 50ms;
@@ -70,6 +76,10 @@ div.au-stagger {
 }
 
 .card-container.au-enter {
+  opacity: 0;
+}
+
+.card-container.au-leave {
   opacity: 0;
 }
 
@@ -156,6 +166,37 @@ div.au-stagger {
   }
 }
 
+
+/* animation definitions */
+@-webkit-keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0)
+  }
+}
+
+@keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0)
+  }
+}
+
+
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
@@ -171,5 +212,24 @@ div.au-stagger {
   }
   100% {
     opacity: 1;
+  }
+}
+
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
